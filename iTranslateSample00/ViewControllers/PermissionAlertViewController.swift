@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol PermissionAlertDelegate: class {
+    func acceptPermission(_ accept: Bool)
+}
+
 final class PermissionAlertViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet private weak var microphoneImageView: UIImageView! {
         didSet { microphoneImageView.tintColor = .fadedGray }
     }
+    
+    // MARK: - Variables
+    weak var delegate: PermissionAlertDelegate!
     
     // MARK: - Lifecycle
     override func viewDidAppear(_ animated: Bool) {
@@ -41,10 +48,12 @@ final class PermissionAlertViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction private func onAllowButtonPressed(_ sender: UIButton) {
+        delegate.acceptPermission(true)
         dismissAlert()
     }
     
     @IBAction private func onLaterButtonPressed(_ sender: UIButton) {
+        delegate.acceptPermission(false)
         dismissAlert()
     }
 }
