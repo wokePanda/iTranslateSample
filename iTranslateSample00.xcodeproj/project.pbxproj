@@ -23,6 +23,9 @@
 		9FEDECB522BB69DE008DDDEF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */; };
 		9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */; };
 		9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */; };
+		9FEDECD022BB70D0008DDDEF /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */; };
+		9FEDECD222BB70D0008DDDEF /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */; };
+		9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
+		9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 		9FEDECA022BB65B7008DDDEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FEDECBE22BB70AB008DDDEF /* Fonts */,
 				9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */,
 				9FEDECA122BB65BD008DDDEF /* Storyboards */,
 			);
@@ -230,6 +237,16 @@
 			children = (
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9FEDECBE22BB70AB008DDDEF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */,
+				9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */,
+				9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,8 +355,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BEBCBCE1CBE93B80019D942 /* LaunchScreen.storyboard in Resources */,
+				9FEDECD022BB70D0008DDDEF /* SFUIText-Semibold.ttf in Resources */,
 				9BEBCBCB1CBE93B80019D942 /* Assets.xcassets in Resources */,
 				9BEBCBC91CBE93B80019D942 /* Main.storyboard in Resources */,
+				9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */,
+				9FEDECD222BB70D0008DDDEF /* SFUIText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
