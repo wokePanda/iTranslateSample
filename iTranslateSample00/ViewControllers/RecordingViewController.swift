@@ -9,7 +9,16 @@
 import UIKit
 
 class RecordingViewController: UIViewController, ViewModelBased {
+    
+    // MARK: - IBOutlets
+    @IBOutlet private weak var recordingButton: UIButton!
+    
+    // MARK: - Variables
     var viewModel: RecordingViewModel!
+    
+    // MARK: - IBActions
+    @IBAction private func goToRecordings(_ sender: UIButton) {}
+    @IBAction private func recordingToggle(_ sender: UIButton) {}
 }
 
 extension RecordingViewController: Storyboarded {
