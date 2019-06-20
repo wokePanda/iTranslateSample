@@ -10,6 +10,11 @@ import UIKit
 
 final class PermissionAlertViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    @IBOutlet private weak var microphoneImageView: UIImageView! {
+        didSet { microphoneImageView.tintColor = .fadedGray }
+    }
+    
     // MARK: - Lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

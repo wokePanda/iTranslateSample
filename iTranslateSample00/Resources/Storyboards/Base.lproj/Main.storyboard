@@ -162,6 +162,9 @@ microphone.</string>
                             <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerY" secondItem="4cF-dQ-yWe" secondAttribute="centerY" id="gMZ-Wp-IH3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="microphoneImageView" destination="oBc-MH-0ZI" id="bzk-2p-05k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhw-Xk-cHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
