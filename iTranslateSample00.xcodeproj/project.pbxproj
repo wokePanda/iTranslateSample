@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9BEBCBC41CBE93B80019D942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBCBC31CBE93B80019D942 /* AppDelegate.swift */; };
-		9BEBCBC61CBE93B80019D942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBCBC51CBE93B80019D942 /* ViewController.swift */; };
+		9BEBCBC61CBE93B80019D942 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBCBC51CBE93B80019D942 /* RecordingViewController.swift */; };
 		9BEBCBC91CBE93B80019D942 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BEBCBC71CBE93B80019D942 /* Main.storyboard */; };
 		9BEBCBCB1CBE93B80019D942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */; };
 		9BEBCBCE1CBE93B80019D942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BEBCBCC1CBE93B80019D942 /* LaunchScreen.storyboard */; };
@@ -22,6 +22,7 @@
 		9FEDECB322BB69C4008DDDEF /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECB222BB69C4008DDDEF /* UITableViewCell+Extension.swift */; };
 		9FEDECB522BB69DE008DDDEF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */; };
 		9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */; };
+		9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,7 @@
 /* Begin PBXFileReference section */
 		9BEBCBC01CBE93B80019D942 /* iTranslateSample00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTranslateSample00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BEBCBC31CBE93B80019D942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BEBCBC51CBE93B80019D942 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BEBCBC51CBE93B80019D942 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		9BEBCBC81CBE93B80019D942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BEBCBCD1CBE93B80019D942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		9FEDECB222BB69C4008DDDEF /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,7 @@
 		9FEDECA222BB65D4008DDDEF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9BEBCBC51CBE93B80019D942 /* ViewController.swift */,
+				9BEBCBC51CBE93B80019D942 /* RecordingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +180,8 @@
 		9FEDECA322BB65DC008DDDEF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9FEDECBB22BB6CD7008DDDEF /* Cells */,
+				9FEDECBA22BB6CD1008DDDEF /* ViewController */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -211,6 +215,21 @@
 				9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FEDECBA22BB6CD1008DDDEF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9FEDECBB22BB6CD7008DDDEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,12 +367,13 @@
 				9FEDECA922BB6957008DDDEF /* NibLoadableView.swift in Sources */,
 				9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */,
 				9FEDECAB22BB6975008DDDEF /* ReusableView.swift in Sources */,
-				9BEBCBC61CBE93B80019D942 /* ViewController.swift in Sources */,
+				9BEBCBC61CBE93B80019D942 /* RecordingViewController.swift in Sources */,
 				9FEDECB322BB69C4008DDDEF /* UITableViewCell+Extension.swift in Sources */,
 				9BEBCBC41CBE93B80019D942 /* AppDelegate.swift in Sources */,
 				9FEDECAF22BB699A008DDDEF /* ViewModelBased.swift in Sources */,
 				9FEDECB522BB69DE008DDDEF /* UITableView+Extension.swift in Sources */,
 				9FEDECB122BB69A9008DDDEF /* ViewModel.swift in Sources */,
+				9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */,
 				9FEDECAD22BB6986008DDDEF /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
