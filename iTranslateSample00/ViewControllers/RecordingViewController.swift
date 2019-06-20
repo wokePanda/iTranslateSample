@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordingViewController: UIViewController, ViewModelBased {
+final class RecordingViewController: UIViewController, ViewModelBased {
     
     // MARK: - IBOutlets
     @IBOutlet private weak var recordingButton: UIButton!

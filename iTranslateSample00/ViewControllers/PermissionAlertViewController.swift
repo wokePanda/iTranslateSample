@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PermissionAlertViewController: UIViewController {
+final class PermissionAlertViewController: UIViewController {
     
     // MARK: - Lifecycle
     override func viewDidAppear(_ animated: Bool) {
