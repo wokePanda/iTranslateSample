@@ -26,6 +26,7 @@
 		9FEDECD022BB70D0008DDDEF /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */; };
 		9FEDECD222BB70D0008DDDEF /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */; };
 		9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */; };
+		9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
 		9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
 		9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Light.otf"; sourceTree = "<group>"; };
+		9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				9FEDECB222BB69C4008DDDEF /* UITableViewCell+Extension.swift */,
 				9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */,
 				9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */,
+				9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				9FEDECA922BB6957008DDDEF /* NibLoadableView.swift in Sources */,
 				9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */,
 				9FEDECAB22BB6975008DDDEF /* ReusableView.swift in Sources */,
+				9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */,
 				9BEBCBC61CBE93B80019D942 /* RecordingViewController.swift in Sources */,
 				9FEDECB322BB69C4008DDDEF /* UITableViewCell+Extension.swift in Sources */,
 				9BEBCBC41CBE93B80019D942 /* AppDelegate.swift in Sources */,
