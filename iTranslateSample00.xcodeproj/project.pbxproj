@@ -27,6 +27,7 @@
 		9FEDECD222BB70D0008DDDEF /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */; };
 		9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */; };
 		9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */; };
+		9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		9FEDECC622BB70CF008DDDEF /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
 		9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Light.otf"; sourceTree = "<group>"; };
 		9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				9BEBCBC51CBE93B80019D942 /* RecordingViewController.swift */,
+				9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				9FEDECA922BB6957008DDDEF /* NibLoadableView.swift in Sources */,
 				9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */,
+				9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */,
 				9FEDECAB22BB6975008DDDEF /* ReusableView.swift in Sources */,
 				9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */,
 				9BEBCBC61CBE93B80019D942 /* RecordingViewController.swift in Sources */,

@@ -9,6 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SFUIDisplay-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
+        <array key="SFUIText-Regular.ttf">
+            <string>SFUIText-Regular</string>
+        </array>
         <array key="SFUIText-Semibold.ttf">
             <string>SFUIText-Semibold</string>
         </array>
@@ -34,6 +40,9 @@
                                 </constraints>
                                 <color key="tintColor" red="0.10196078431372549" green="0.59607843137254901" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="Mic"/>
+                                <connections>
+                                    <action selector="recordingToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nau-9g-cEC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-h1-747">
                                 <rect key="frame" x="97" y="608" width="220" height="44"/>
@@ -45,8 +54,7 @@
                                     <color key="titleColor" red="0.1019607843" green="0.59607843140000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToRecordings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bD5-1e-t11"/>
-                                    <action selector="recordingToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pG4-fe-ZIV"/>
+                                    <action selector="goToRecordings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6R0-ad-JMa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -64,6 +72,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="94" y="15"/>
+        </scene>
+        <!--Permission Alert View Controller-->
+        <scene sceneID="Ig9-3Z-sFg">
+            <objects>
+                <viewController storyboardIdentifier="PermissionAlertViewController" id="isA-7u-Czx" customClass="PermissionAlertViewController" customModule="iTranslateSample00" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XJ2-wW-KtL"/>
+                        <viewControllerLayoutGuide type="bottom" id="OL6-ZN-rDh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4cF-dQ-yWe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftk-Ps-VyR">
+                                <rect key="frame" x="57" y="204" width="300" height="488"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mic" translatesAutoresizingMaskIntoConstraints="NO" id="oBc-MH-0ZI">
+                                        <rect key="frame" x="90" y="50" width="120" height="120"/>
+                                        <color key="tintColor" red="0.63137254901960782" green="0.66666666666666663" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="6uQ-45-Eag"/>
+                                            <constraint firstAttribute="height" constant="120" id="kaC-bh-Hyq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7k-4g-An0">
+                                        <rect key="frame" x="79" y="190" width="142" height="34"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="28"/>
+                                        <color key="textColor" red="0.63137254899999995" green="0.66666666669999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-vt-Q5F">
+                                        <rect key="frame" x="40" y="346.5" width="220" height="44"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="17"/>
+                                        <state key="normal" title="Allow" backgroundImage="button">
+                                            <color key="titleColor" red="0.1019607843" green="0.59607843140000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onAllowButtonPressed:" destination="isA-7u-Czx" eventType="touchUpInside" id="MCv-EF-12e"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psC-IV-hat">
+                                        <rect key="frame" x="114" y="420.5" width="72" height="28"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                        <state key="normal" title="Maybe later">
+                                            <color key="titleColor" red="0.1019607843" green="0.59607843140000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLaterButtonPressed:" destination="isA-7u-Czx" eventType="touchUpInside" id="7Ds-Mh-j4d"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBH-7m-BTy">
+                                        <rect key="frame" x="41.5" y="244" width="217.5" height="62.5"/>
+                                        <string key="text">In order to use voice to voice
+conversation, iTranslate needs your
+permission to use your iPhone’s
+microphone.</string>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                        <color key="textColor" red="0.63137254899999995" green="0.66666666669999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="psC-IV-hat" firstAttribute="centerX" secondItem="ftk-Ps-VyR" secondAttribute="centerX" id="7n2-9N-xRn"/>
+                                    <constraint firstItem="iBH-7m-BTy" firstAttribute="centerX" secondItem="ftk-Ps-VyR" secondAttribute="centerX" id="8Sw-AO-pHj"/>
+                                    <constraint firstAttribute="width" constant="300" id="K9O-oq-yPX"/>
+                                    <constraint firstItem="A7k-4g-An0" firstAttribute="centerX" secondItem="ftk-Ps-VyR" secondAttribute="centerX" id="KoE-MS-05n"/>
+                                    <constraint firstItem="s4n-vt-Q5F" firstAttribute="centerX" secondItem="ftk-Ps-VyR" secondAttribute="centerX" id="VxS-76-n5n"/>
+                                    <constraint firstItem="A7k-4g-An0" firstAttribute="top" secondItem="oBc-MH-0ZI" secondAttribute="bottom" constant="20" id="X6x-or-DZ0"/>
+                                    <constraint firstItem="oBc-MH-0ZI" firstAttribute="top" secondItem="ftk-Ps-VyR" secondAttribute="top" constant="50" id="Zvl-iv-DIp"/>
+                                    <constraint firstAttribute="height" constant="488" id="buh-Ks-Eel"/>
+                                    <constraint firstItem="oBc-MH-0ZI" firstAttribute="centerX" secondItem="ftk-Ps-VyR" secondAttribute="centerX" id="g0f-fN-HbP"/>
+                                    <constraint firstItem="s4n-vt-Q5F" firstAttribute="top" secondItem="iBH-7m-BTy" secondAttribute="bottom" constant="40" id="kO8-iG-Ckj"/>
+                                    <constraint firstItem="iBH-7m-BTy" firstAttribute="top" secondItem="A7k-4g-An0" secondAttribute="bottom" constant="20" id="n29-3Z-d5E"/>
+                                    <constraint firstItem="psC-IV-hat" firstAttribute="top" secondItem="s4n-vt-Q5F" secondAttribute="bottom" constant="30" id="y8E-tl-W4Y"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerX" secondItem="4cF-dQ-yWe" secondAttribute="centerX" id="6cY-uX-ckb"/>
+                            <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerY" secondItem="4cF-dQ-yWe" secondAttribute="centerY" id="gMZ-Wp-IH3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhw-Xk-cHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895.6521739130435" y="14.732142857142856"/>
         </scene>
     </scenes>
     <resources>

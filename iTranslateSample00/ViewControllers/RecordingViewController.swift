@@ -16,9 +16,18 @@ class RecordingViewController: UIViewController, ViewModelBased {
     // MARK: - Variables
     var viewModel: RecordingViewModel!
     
+    // MARK: - Helpers
+    private func presentPermissionAlert() {
+        let alert = PermissionAlertViewController.getInstance()
+        alert.modalPresentationStyle = .overCurrentContext
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - IBActions
+    @IBAction private func recordingToggle(_ sender: UIButton) {
+        presentPermissionAlert()
+    }
     @IBAction private func goToRecordings(_ sender: UIButton) {}
-    @IBAction private func recordingToggle(_ sender: UIButton) {}
 }
 
 extension RecordingViewController: Storyboarded {
