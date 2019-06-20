@@ -99,13 +99,10 @@
 		9BEBCBC21CBE93B80019D942 /* iTranslateSample00 */ = {
 			isa = PBXGroup;
 			children = (
-				9BEBCBC31CBE93B80019D942 /* AppDelegate.swift */,
-				9BEBCBC51CBE93B80019D942 /* ViewController.swift */,
-				9BEBCBC71CBE93B80019D942 /* Main.storyboard */,
-				9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */,
-				9BEBCBCC1CBE93B80019D942 /* LaunchScreen.storyboard */,
-				9BEBCBCF1CBE93B80019D942 /* Info.plist */,
-				9BEBCBF11CBE94490019D942 /* ViewModel.swift */,
+				9FEDECA322BB65DC008DDDEF /* ViewModels */,
+				9FEDECA222BB65D4008DDDEF /* ViewControllers */,
+				9FEDECA022BB65B7008DDDEF /* Resources */,
+				9FEDEC9F22BB65A9008DDDEF /* Project Files */,
 			);
 			path = iTranslateSample00;
 			sourceTree = "<group>";
@@ -126,6 +123,49 @@
 				9BEBCBE51CBE93B80019D942 /* Info.plist */,
 			);
 			path = iTranslateSample00UITests;
+			sourceTree = "<group>";
+		};
+		9FEDEC9F22BB65A9008DDDEF /* Project Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBC31CBE93B80019D942 /* AppDelegate.swift */,
+				9BEBCBCF1CBE93B80019D942 /* Info.plist */,
+			);
+			path = "Project Files";
+			sourceTree = "<group>";
+		};
+		9FEDECA022BB65B7008DDDEF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */,
+				9FEDECA122BB65BD008DDDEF /* Storyboards */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9FEDECA122BB65BD008DDDEF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBC71CBE93B80019D942 /* Main.storyboard */,
+				9BEBCBCC1CBE93B80019D942 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9FEDECA222BB65D4008DDDEF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBC51CBE93B80019D942 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9FEDECA322BB65DC008DDDEF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBF11CBE94490019D942 /* ViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +236,7 @@
 				TargetAttributes = {
 					9BEBCBBF1CBE93B80019D942 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8CEQW7LX82;
 					};
 					9BEBCBD31CBE93B80019D942 = {
 						CreatedOnToolsVersion = 7.3;
@@ -212,6 +253,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -403,10 +445,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = iTranslateSample00/Info.plist;
+				DEVELOPMENT_TEAM = 8CEQW7LX82;
+				INFOPLIST_FILE = "iTranslateSample00/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itranslate.iTranslateSample00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -414,10 +458,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = iTranslateSample00/Info.plist;
+				DEVELOPMENT_TEAM = 8CEQW7LX82;
+				INFOPLIST_FILE = "iTranslateSample00/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itranslate.iTranslateSample00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -486,6 +532,7 @@
 				9BEBCBEA1CBE93B80019D942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BEBCBEB1CBE93B80019D942 /* Build configuration list for PBXNativeTarget "iTranslateSample00Tests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +541,7 @@
 				9BEBCBED1CBE93B80019D942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BEBCBEE1CBE93B80019D942 /* Build configuration list for PBXNativeTarget "iTranslateSample00UITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +550,7 @@
 				9BEBCBF01CBE93B80019D942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
