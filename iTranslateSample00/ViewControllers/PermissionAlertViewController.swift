@@ -19,6 +19,9 @@ final class PermissionAlertViewController: UIViewController {
         didSet { microphoneImageView.tintColor = .fadedGray }
     }
     
+    // MARK: - Constants
+    private let animationDuration = 0.25
+    
     // MARK: - Variables
     weak var delegate: PermissionAlertDelegate!
     
@@ -30,14 +33,14 @@ final class PermissionAlertViewController: UIViewController {
     
     // MARK: - Helpers
     private func fadeInBackground() {
-        UIView.animate(withDuration: 0.25) { [weak self] in
+        UIView.animate(withDuration: animationDuration) { [weak self] in
             guard let self = self else { return }
             self.view.backgroundColor = .fadedBlack
         }
     }
     
     private func dismissAlert() {
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+        UIView.animate(withDuration: animationDuration, animations: { [weak self] in
             guard let self = self else { return }
             self.view.backgroundColor = .clear
         }) { [weak self] _ in
