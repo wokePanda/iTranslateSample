@@ -14,12 +14,14 @@ struct Recording {
     let path: String
     let duration: Int
     
-    static func from(_ stringPath: String) -> Recording {
-        let asset = AVURLAsset(url: URL(fileURLWithPath: stringPath))
+    static func from(_ stringPath: String) -> Recording? {
+        guard let url = URL(string: stringPath) else { return nil }
+        let asset = AVURLAsset(url: url)
         let audioDuration = asset.duration
-        let audioDurationSeconds = Int(CMTimeGetSeconds(audioDuration))
-        return Recording(name: (stringPath.components(separatedBy: "/").last ?? "").components(separatedBy: ".").first ?? "",
+        let audioDurationSeconds = Double(CMTimeGetSeconds(audioDuration))
+        let name = ((stringPath.components(separatedBy: "/").last ?? "").components(separatedBy: ".").first ?? "").replacingOccurrences(of: "%20", with: " ")
+        return Recording(name: name,
                          path: stringPath,
-                         duration: audioDurationSeconds)
+                         duration: Int(audioDurationSeconds))
     }
 }

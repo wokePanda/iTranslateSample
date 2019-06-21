@@ -29,9 +29,14 @@ final class RecordingListViewModel: ViewModel {
         let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return }
         let audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("Recording")}
-        recordings = audioFilePaths.map({ Recording.from($0) }).sorted(by: { (recordingA, recordingB) -> Bool in
+        recordings = audioFilePaths.compactMap({ Recording.from(filePath(for: $0)) }).sorted(by: { (recordingA, recordingB) -> Bool in
             return recordingA.name < recordingB.name
         })
+    }
+    
+    private func filePath(for name: String) -> String {
+        guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return "" }
+        return "file://" + getDocumentsDirectory().path + "/" + encodedName
     }
     
     private func getDocumentsDirectory() -> URL {
@@ -47,7 +52,7 @@ final class RecordingListViewModel: ViewModel {
     func playRecording(at indexPath: IndexPath) {
         let recording = recordings[indexPath.row]
         do {
-            guard let url = URL(string: ("file://" + getDocumentsDirectory().path + "/" + recording.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)) else { return }
+            guard let url = URL(string: recording.path) else { return }
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.m4a.rawValue)
