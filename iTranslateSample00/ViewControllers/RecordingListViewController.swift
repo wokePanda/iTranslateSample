@@ -10,6 +10,9 @@ import UIKit
 
 final class RecordingListViewController: UIViewController, ViewModelBased {
     
+    // MARK: - IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
+    
     // MARK: - Variables
     var viewModel: RecordingListViewModel!
     
@@ -35,6 +38,16 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     // MARK: - Helpers
     @objc private func dismissList() {
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RecordingListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
 
