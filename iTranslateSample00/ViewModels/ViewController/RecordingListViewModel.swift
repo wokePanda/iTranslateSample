@@ -21,7 +21,6 @@ final class RecordingListViewModel: ViewModel {
     // MARK: - Init
     init() {
         getRecordings()
-        
     }
     
     // MARK: - Helpers
@@ -59,6 +58,26 @@ final class RecordingListViewModel: ViewModel {
             player?.play()
         } catch let error {
             print(error.localizedDescription)
+        }
+    }
+    
+    func removeRecording(at indexPath: IndexPath, completion handler: @escaping (Error?) -> Void) {
+        guard indexPath.row < recordings.count else {
+            handler(CustomError.noFileAtPath)
+            return
+        }
+        let recording = recordings[indexPath.row]
+        let fileManager = FileManager.default
+        do {
+            guard let url = URL(string: recording.path) else {
+                handler(CustomError.noFileAtPath)
+                return
+            }
+            recordings.remove(at: indexPath.row)
+            try fileManager.removeItem(at: url)
+            handler(nil)
+        } catch let error {
+            handler(error)
         }
     }
 }

@@ -67,6 +67,24 @@ extension RecordingListViewController: UITableViewDelegate, UITableViewDataSourc
         viewModel.playRecording(at: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "") { [weak self] action, indexPath in
+            guard let self = self else { return }
+            self.viewModel.removeRecording(at: indexPath, completion: { error in
+                if let error = error {
+                    self.presentAlert(for: error)
+                    return
+                }
+                tableView.reloadData()
+                self.presentAlert(with: "Success", message: "Recording has been deleted")
+            })
+        }
+        if let deleteIconImage = UIImage(named: "deleteImage") {
+            deleteAction.backgroundColor = UIColor(patternImage: deleteIconImage)
+        }
+        return [deleteAction]
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "RECENTLY USED"
     }
