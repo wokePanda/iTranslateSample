@@ -31,6 +31,9 @@
 		9FEDECDE22BCA58C008DDDEF /* RecordingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */; };
 		9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */; };
 		9FEDECE222BCA87D008DDDEF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECE122BCA87D008DDDEF /* UIFont+Extension.swift */; };
+		9FEDECE622BCACDD008DDDEF /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECE422BCACDD008DDDEF /* RecordingTableViewCell.swift */; };
+		9FEDECE722BCACDD008DDDEF /* RecordingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECE522BCACDD008DDDEF /* RecordingTableViewCell.xib */; };
+		9FEDECE922BCACFB008DDDEF /* RecordingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECE822BCACFB008DDDEF /* RecordingCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewController.swift; sourceTree = "<group>"; };
 		9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewModel.swift; sourceTree = "<group>"; };
 		9FEDECE122BCA87D008DDDEF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		9FEDECE422BCACDD008DDDEF /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
+		9FEDECE522BCACDD008DDDEF /* RecordingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingTableViewCell.xib; sourceTree = "<group>"; };
+		9FEDECE822BCACFB008DDDEF /* RecordingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 		9BEBCBC21CBE93B80019D942 /* iTranslateSample00 */ = {
 			isa = PBXGroup;
 			children = (
+				9FEDECE322BCACC1008DDDEF /* Cells */,
 				9FEDECA522BB6927008DDDEF /* Helpers */,
 				9FEDECA322BB65DC008DDDEF /* ViewModels */,
 				9FEDECA222BB65D4008DDDEF /* ViewControllers */,
@@ -250,6 +257,7 @@
 		9FEDECBB22BB6CD7008DDDEF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9FEDECE822BCACFB008DDDEF /* RecordingCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -262,6 +270,15 @@
 				9FEDECC422BB70CF008DDDEF /* SFUIText-Semibold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9FEDECE322BCACC1008DDDEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9FEDECE422BCACDD008DDDEF /* RecordingTableViewCell.swift */,
+				9FEDECE522BCACDD008DDDEF /* RecordingTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +390,7 @@
 				9FEDECD022BB70D0008DDDEF /* SFUIText-Semibold.ttf in Resources */,
 				9BEBCBCB1CBE93B80019D942 /* Assets.xcassets in Resources */,
 				9BEBCBC91CBE93B80019D942 /* Main.storyboard in Resources */,
+				9FEDECE722BCACDD008DDDEF /* RecordingTableViewCell.xib in Resources */,
 				9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */,
 				9FEDECD222BB70D0008DDDEF /* SFUIText-Regular.ttf in Resources */,
 			);
@@ -399,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEDECE922BCACFB008DDDEF /* RecordingCellViewModel.swift in Sources */,
 				9FEDECA922BB6957008DDDEF /* NibLoadableView.swift in Sources */,
 				9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */,
 				9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */,
@@ -414,6 +433,7 @@
 				9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */,
 				9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */,
 				9FEDECE222BCA87D008DDDEF /* UIFont+Extension.swift in Sources */,
+				9FEDECE622BCACDD008DDDEF /* RecordingTableViewCell.swift in Sources */,
 				9FEDECAD22BB6986008DDDEF /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,4 +10,5 @@ import UIKit
 
 extension UIFont {
     static let sfUiTextRegular = UIFont(name: "SFUIText-Regular", size: 17)
+    static let sfUiTextSemibold = UIFont(name: "SFUIText-Semibold", size: 17)
 }

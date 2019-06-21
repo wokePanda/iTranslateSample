@@ -25,14 +25,22 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     // MARK: - Setup
     private func setup() {
         setupNavigationBar()
+        setupTableView()
     }
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.barTintColor = .babyBlue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.sfUiTextSemibold!,
+                                                                   NSAttributedString.Key.foregroundColor: UIColor.white]
+        title = "Recordings"
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissList))
         doneButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.sfUiTextRegular!,
                                            NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    private func setupTableView() {
+        tableView.register(RecordingTableViewCell.self)
     }
     
     // MARK: - Helpers
@@ -43,11 +51,16 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
 
 extension RecordingListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfFiles
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: RecordingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "RECENTLY USED"
     }
 }
 
