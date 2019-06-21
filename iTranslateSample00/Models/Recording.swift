@@ -19,7 +19,7 @@ struct Recording {
         let asset = AVURLAsset(url: url)
         let audioDuration = asset.duration
         let audioDurationSeconds = Double(CMTimeGetSeconds(audioDuration))
-        let name = ((stringPath.components(separatedBy: "/").last ?? "").components(separatedBy: ".").first ?? "").replacingOccurrences(of: "%20", with: " ")
+        let name = stringPath.filenameFromPath()
         return Recording(name: name,
                          path: stringPath,
                          duration: Int(audioDurationSeconds))

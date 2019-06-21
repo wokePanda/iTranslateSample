@@ -9,28 +9,22 @@
 import Foundation
 import AVFoundation
 
-enum RecordingStatus {
-    case recording
-    case stopped
-    case needPermissions
-    case deniedPermissions
-}
-
 final class RecordingViewModel: NSObject, ViewModel {
     
+    // MARK: - Private variables
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
+    private var nameOfRecording: String {
+        return "\(Constants.recordingFileName) \(lastRecordingNumber() + 1)\(Constants.recordingFileFormat)"
+    }
+    
+    // MARK: - Public variables
     var finishRecording: ((Error?) -> Void) = { _ in }
     var createRecording: (() -> Void) = {}
     
-    func createRecorder() throws {
-        recordingSession = AVAudioSession.sharedInstance()
-        try recordingSession.setCategory(.record, mode: .default)
-        try recordingSession.setActive(true)
-    }
-    
+    // MARK: - Private helpers
     private func startRecording() {
-        let audioFilename = FileManagerHelper.getAppDirectory().appendingPathComponent("Recording \(lastRecordingNumber() + 1).m4a")
+        let audioFilename = FileManagerHelper.getAppDirectory().appendingPathComponent(nameOfRecording)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -58,8 +52,16 @@ final class RecordingViewModel: NSObject, ViewModel {
     private func lastRecordingNumber() -> Int {
         let enumerator = FileManager.default.enumerator(atPath: FileManagerHelper.getAppDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return 0 }
-        let audioFilePaths = filePaths.filter{ $0.contains(".m4a") && $0.contains("Recording") }.sorted()
-        return Int(audioFilePaths.last?.replacingOccurrences(of: "Recording ", with: "").replacingOccurrences(of: ".m4a", with: "") ?? "0") ?? 0
+        let audioFilePaths = filePaths.filter{ $0.contains(Constants.recordingFileFormat) && $0.contains(Constants.recordingFileName) }.sorted()
+        guard let lastAudioFile = audioFilePaths.last else { return 0 }
+        return lastAudioFile.indexForRecordingFile()
+    }
+    
+    // MARK: - Public helpers
+    func createRecorder() throws {
+        recordingSession = AVAudioSession.sharedInstance()
+        try recordingSession.setCategory(.record, mode: .default)
+        try recordingSession.setActive(true)
     }
     
     func toggleRecording(completion handler: @escaping (RecordingStatus) -> Void) {

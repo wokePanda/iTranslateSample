@@ -8,25 +8,12 @@
 
 import Foundation
 
-extension Int {
-    func durationString() -> String {
-        guard self > 0 else { return "00:42" }
-        let minutes = self / 60
-        let seconds = self % 60
-        var minutesString: String {
-            if minutes > 9 {
-                return "\(minutes)"
-            } else {
-                return "0\(minutes)"
-            }
-        }
-        var secondsString: String {
-            if seconds > 9 {
-                return "\(seconds)"
-            } else {
-                return "0\(seconds)"
-            }
-        }
-        return "\(minutesString):\(secondsString)"
+extension String {
+    func filenameFromPath() -> String {
+        return ((self.components(separatedBy: "/").last ?? "").components(separatedBy: ".").first ?? "").replacingOccurrences(of: "%20", with: " ")
+    }
+    
+    func indexForRecordingFile() -> Int {
+        return Int(self.replacingOccurrences(of: "Recording ", with: "").replacingOccurrences(of: ".m4a", with: "")) ?? 0
     }
 }
