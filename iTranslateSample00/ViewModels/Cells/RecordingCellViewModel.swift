@@ -9,10 +9,13 @@
 import Foundation
 
 struct RecordingCellViewModel: ViewModel {
-    let name: String
-    let duration: String
+    private let recording: Recording!
     
-    static func from(_ recording: Recording) -> RecordingCellViewModel {
-        return RecordingCellViewModel(name: recording.name, duration: recording.duration.durationString())
+    var name: String { return recording.name }
+    var durationString: String { return recording.duration.durationString() }
+    var duration: Int { return recording.duration }
+    
+    init(recording: Recording) {
+        self.recording = recording
     }
 }

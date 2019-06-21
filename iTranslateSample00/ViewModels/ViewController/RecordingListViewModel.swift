@@ -41,7 +41,7 @@ final class RecordingListViewModel: ViewModel {
     // MARK: - Public helpers
     func recordingCellViewModel(at indexPath: IndexPath) -> RecordingCellViewModel? {
         guard indexPath.row < recordings.count else { return nil }
-        return RecordingCellViewModel.from(recordings[indexPath.row])
+        return RecordingCellViewModel(recording: recordings[indexPath.row])
     }
     
     func playRecording(at indexPath: IndexPath) {

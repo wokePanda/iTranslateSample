@@ -10,7 +10,7 @@ import Foundation
 
 extension Int {
     func durationString() -> String {
-        guard self > 0 else { return "00:42" }
+        guard self > 0 else { return "00:00" }
         let minutes = self / 60
         let seconds = self % 60
         var minutesString: String {
