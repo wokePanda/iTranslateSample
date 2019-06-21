@@ -52,6 +52,7 @@ final class RecordingViewController: UIViewController, ViewModelBased {
     }
     
     private func finishRecording(success: Bool) {
+        self.recordingButton.tintColor = .babyBlue
         if success {
             presentAlert(with: "Success", message: "Your recording has been created!")
         } else {
@@ -64,7 +65,7 @@ final class RecordingViewController: UIViewController, ViewModelBased {
             guard let self = self else { return }
             switch newStatus {
             case .stopped:
-                self.recordingButton.tintColor = .babyBlue
+                return
             case .deniedPermissions:
                 self.presentAlert(with: "Error", message: "Please allow access to microphone from settings", actionMessage: "OK") {
                     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
