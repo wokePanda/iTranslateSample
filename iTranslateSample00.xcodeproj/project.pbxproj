@@ -37,6 +37,7 @@
 		9FEDECEB22BCBD49008DDDEF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECEA22BCBD49008DDDEF /* String+Extension.swift */; };
 		9FEDECEE22BCC283008DDDEF /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECED22BCC283008DDDEF /* Recording.swift */; };
 		9FEDECF022BD04BD008DDDEF /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECEF22BD04BD008DDDEF /* CustomError.swift */; };
+		9FEDECF222BD0ABD008DDDEF /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECF122BD0ABD008DDDEF /* FileManagerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		9FEDECEA22BCBD49008DDDEF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECED22BCC283008DDDEF /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		9FEDECEF22BD04BD008DDDEF /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		9FEDECF122BD0ABD008DDDEF /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				9FEDECA722BB6935008DDDEF /* Extensions */,
 				9FEDECA622BB692F008DDDEF /* Protocols */,
 				9FEDECEF22BD04BD008DDDEF /* CustomError.swift */,
+				9FEDECF122BD0ABD008DDDEF /* FileManagerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				9FEDECF022BD04BD008DDDEF /* CustomError.swift in Sources */,
 				9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */,
 				9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */,
+				9FEDECF222BD0ABD008DDDEF /* FileManagerHelper.swift in Sources */,
 				9FEDECE222BCA87D008DDDEF /* UIFont+Extension.swift in Sources */,
 				9FEDECE622BCACDD008DDDEF /* RecordingTableViewCell.swift in Sources */,
 				9FEDECAD22BB6986008DDDEF /* Storyboarded.swift in Sources */,

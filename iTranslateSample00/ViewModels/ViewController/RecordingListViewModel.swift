@@ -25,7 +25,7 @@ final class RecordingListViewModel: ViewModel {
     
     // MARK: - Helpers
     private func getRecordings() {
-        let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
+        let enumerator = FileManager.default.enumerator(atPath: FileManagerHelper.getAppDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return }
         let audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("Recording")}
         recordings = audioFilePaths.compactMap({ Recording.from(filePath(for: $0)) }).sorted(by: { (recordingA, recordingB) -> Bool in
@@ -35,12 +35,7 @@ final class RecordingListViewModel: ViewModel {
     
     private func filePath(for name: String) -> String {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return "" }
-        return "file://" + getDocumentsDirectory().path + "/" + encodedName
-    }
-    
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+        return "file://" + FileManagerHelper.getAppDirectory().path + "/" + encodedName
     }
     
     func recordingCellViewModel(at indexPath: IndexPath) -> RecordingCellViewModel? {

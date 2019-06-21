@@ -51,12 +51,12 @@ final class RecordingViewController: UIViewController, ViewModelBased {
         }
     }
     
-    private func finishRecording(success: Bool) {
+    private func finishRecording(error: Error?) {
         self.recordingButton.tintColor = .babyBlue
-        if success {
-            presentAlert(with: "Success", message: "Your recording has been created!")
+        if let error = error {
+            presentAlert(for: error)
         } else {
-            presentAlert(with: "Failure", message: "Your recording could not be saved")
+            presentAlert(with: "Success", message: "Your recording has been created!")
         }
     }
     

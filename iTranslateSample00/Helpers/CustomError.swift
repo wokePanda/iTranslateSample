@@ -10,6 +10,7 @@ import Foundation
 
 enum CustomError: Error {
     case noFileAtPath
+    case recordingStopped
 }
 
 extension CustomError: LocalizedError {
@@ -17,6 +18,8 @@ extension CustomError: LocalizedError {
         switch self {
         case .noFileAtPath:
             return NSLocalizedString("There is no file at this path", comment: "No File Error")
+        case .recordingStopped:
+            return NSLocalizedString("Recording was interrupted", comment: "Recording Error")
         }
     }
 }
