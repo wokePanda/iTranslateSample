@@ -28,6 +28,8 @@
 		9FEDECD822BB7131008DDDEF /* SFUIDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */; };
 		9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */; };
 		9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */; };
+		9FEDECDE22BCA58C008DDDEF /* RecordingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */; };
+		9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		9FEDECD722BB7131008DDDEF /* SFUIDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Light.otf"; sourceTree = "<group>"; };
 		9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionAlertViewController.swift; sourceTree = "<group>"; };
+		9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewController.swift; sourceTree = "<group>"; };
+		9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 			children = (
 				9BEBCBC51CBE93B80019D942 /* RecordingViewController.swift */,
 				9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */,
+				9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				9FEDECBC22BB6CE7008DDDEF /* RecordingViewModel.swift */,
+				9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				9FEDECB722BB69FC008DDDEF /* UIViewController+Extension.swift in Sources */,
 				9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */,
 				9FEDECAB22BB6975008DDDEF /* ReusableView.swift in Sources */,
+				9FEDECDE22BCA58C008DDDEF /* RecordingListViewController.swift in Sources */,
 				9FEDECDA22BB84A6008DDDEF /* UIColor+Extension.swift in Sources */,
 				9BEBCBC61CBE93B80019D942 /* RecordingViewController.swift in Sources */,
 				9FEDECB322BB69C4008DDDEF /* UITableViewCell+Extension.swift in Sources */,
@@ -401,6 +408,7 @@
 				9FEDECAF22BB699A008DDDEF /* ViewModelBased.swift in Sources */,
 				9FEDECB522BB69DE008DDDEF /* UITableView+Extension.swift in Sources */,
 				9FEDECB122BB69A9008DDDEF /* ViewModel.swift in Sources */,
+				9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */,
 				9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */,
 				9FEDECAD22BB6986008DDDEF /* Storyboarded.swift in Sources */,
 			);

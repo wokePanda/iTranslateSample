@@ -79,11 +79,19 @@ final class RecordingViewController: UIViewController, ViewModelBased {
         }
     }
     
+    private func goToRecordings() {
+        let recordingListViewController = RecordingListViewController.instantiate(with: RecordingListViewModel())
+        let navigationController = UINavigationController(rootViewController: recordingListViewController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     // MARK: - IBActions
     @IBAction private func recordingToggle(_ sender: UIButton) {
         toggleRecording()
     }
-    @IBAction private func goToRecordings(_ sender: UIButton) {}
+    @IBAction private func goToRecordings(_ sender: UIButton) {
+        goToRecordings()
+    }
 }
 
 extension RecordingViewController: Storyboarded {
