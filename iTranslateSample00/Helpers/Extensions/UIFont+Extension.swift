@@ -1,11 +1,13 @@
 //
-//  RecordingListViewModel.swift
+//  UIFont+Extension.swift
 //  iTranslateSample00
 //
 //  Created by Florin Uscatu on 21/06/2019.
 //  Copyright © 2019 Andreas Dolinsek. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-final class RecordingListViewModel: ViewModel {}
+extension UIFont {
+    static let sfUiTextRegular = UIFont(name: "SFUIText-Regular", size: 17)
+}

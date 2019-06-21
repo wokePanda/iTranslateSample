@@ -30,6 +30,7 @@
 		9FEDECDC22BB8F80008DDDEF /* PermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */; };
 		9FEDECDE22BCA58C008DDDEF /* RecordingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */; };
 		9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */; };
+		9FEDECE222BCA87D008DDDEF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECE122BCA87D008DDDEF /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		9FEDECDB22BB8F80008DDDEF /* PermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionAlertViewController.swift; sourceTree = "<group>"; };
 		9FEDECDD22BCA58C008DDDEF /* RecordingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewController.swift; sourceTree = "<group>"; };
 		9FEDECDF22BCA59D008DDDEF /* RecordingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListViewModel.swift; sourceTree = "<group>"; };
+		9FEDECE122BCA87D008DDDEF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				9FEDECB422BB69DE008DDDEF /* UITableView+Extension.swift */,
 				9FEDECB622BB69FC008DDDEF /* UIViewController+Extension.swift */,
 				9FEDECD922BB84A6008DDDEF /* UIColor+Extension.swift */,
+				9FEDECE122BCA87D008DDDEF /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				9FEDECB122BB69A9008DDDEF /* ViewModel.swift in Sources */,
 				9FEDECE022BCA59D008DDDEF /* RecordingListViewModel.swift in Sources */,
 				9FEDECBD22BB6CE7008DDDEF /* RecordingViewModel.swift in Sources */,
+				9FEDECE222BCA87D008DDDEF /* UIFont+Extension.swift in Sources */,
 				9FEDECAD22BB6986008DDDEF /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

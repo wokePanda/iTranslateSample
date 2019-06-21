@@ -16,7 +16,7 @@ enum RecordingStatus {
     case deniedPermissions
 }
 
-class RecordingViewModel: NSObject, ViewModel {
+final class RecordingViewModel: NSObject, ViewModel {
     
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
