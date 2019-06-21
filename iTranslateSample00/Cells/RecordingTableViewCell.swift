@@ -31,23 +31,26 @@ final class RecordingTableViewCell: UITableViewCell, ViewModelBased {
         if selected { startCountdown() }
     }
     
-    private func resetCell() {
+    func reset() {
+        self.timer?.invalidate()
         backgroundColor = .white
         durationLabel.textColor = .babyBlue
+        nameLabel.textColor = .black
         durationLabel.text = viewModel.durationString
     }
     
     private func startCountdown() {
         backgroundColor = .fadedGray
         durationLabel.textColor = .white
+        nameLabel.textColor = .white
         var repeats = 0
-        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(exactly: 1.0)!, repeats: true, block: { [weak self] _ in
+        guard let oneSecondInterval = TimeInterval(exactly: 1.0) else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: oneSecondInterval, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             let newDuration = self.viewModel.duration - repeats
             self.durationLabel.text = newDuration.durationString()
             if newDuration == -1 {
-                self.timer?.invalidate()
-                self.resetCell()
+                self.reset()
             }
             repeats += 1
         })

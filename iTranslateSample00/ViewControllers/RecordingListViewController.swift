@@ -62,6 +62,14 @@ extension RecordingListViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        tableView.visibleCells.forEach { cell in
+            guard let cell = cell as? RecordingTableViewCell else { return }
+            cell.reset()
+        }
+        return indexPath
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.playRecording(at: indexPath)
