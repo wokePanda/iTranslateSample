@@ -25,12 +25,12 @@ final class RecordingViewModel: NSObject, ViewModel {
     
     func createRecorder() throws {
         recordingSession = AVAudioSession.sharedInstance()
-        try recordingSession.setCategory(.playAndRecord, mode: .default)
+        try recordingSession.setCategory(.record, mode: .default)
         try recordingSession.setActive(true)
     }
     
     private func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("Recording \(searchForRecordings()).m4a")
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("Recording \(numberOfRecordings()).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -55,7 +55,7 @@ final class RecordingViewModel: NSObject, ViewModel {
         finishRecording(success)
     }
     
-    private func searchForRecordings() -> Int {
+    private func numberOfRecordings() -> Int {
         var numberOfRecordings = 0
         let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return 0 }

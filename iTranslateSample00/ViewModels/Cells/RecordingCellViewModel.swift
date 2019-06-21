@@ -8,4 +8,11 @@
 
 import Foundation
 
-struct RecordingCellViewModel: ViewModel {}
+struct RecordingCellViewModel: ViewModel {
+    let name: String
+    let duration: String
+    
+    static func from(_ recording: Recording) -> RecordingCellViewModel {
+        return RecordingCellViewModel(name: recording.name, duration: recording.duration.durationString())
+    }
+}

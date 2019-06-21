@@ -56,11 +56,15 @@ extension RecordingListViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RecordingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        if let cellViewModel = viewModel.recordingCellViewModel(at: indexPath) {
+            cell.viewModel = cellViewModel
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.playRecording(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

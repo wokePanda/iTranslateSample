@@ -9,5 +9,19 @@
 import UIKit
 
 final class RecordingTableViewCell: UITableViewCell, ViewModelBased {
-    var viewModel: RecordingCellViewModel!
+    
+    // MARK: - IBOutlets
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    
+    // MARK: - Variables
+    var viewModel: RecordingCellViewModel! {
+        didSet { setup(with: viewModel) }
+    }
+    
+    // MARK: - Setup
+    private func setup(with viewModel: RecordingCellViewModel) {
+        nameLabel.text = viewModel.name
+        durationLabel.text = viewModel.duration
+    }
 }
