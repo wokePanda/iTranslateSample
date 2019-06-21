@@ -57,9 +57,9 @@ final class RecordingViewModel: NSObject, ViewModel {
     
     private func searchForRecordings() -> Int {
         var numberOfRecordings = 0
-        let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().relativeString)
+        let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return 0 }
-        let audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("recording")}
+        let audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("Recording")}
         audioFilePaths.forEach { _ in numberOfRecordings += 1 }
         return numberOfRecordings
     }

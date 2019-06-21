@@ -23,9 +23,9 @@ final class RecordingListViewModel: ViewModel {
     
     // MARK: - Helpers
     private func getRecordings() {
-        let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().relativeString)
+        let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return }
-        audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("recording")}
+        audioFilePaths = filePaths.filter{$0.contains(".m4a") && $0.contains("Recording")}
     }
     
     private func getDocumentsDirectory() -> URL {
