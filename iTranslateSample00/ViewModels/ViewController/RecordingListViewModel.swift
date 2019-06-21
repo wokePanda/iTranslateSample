@@ -23,7 +23,7 @@ final class RecordingListViewModel: ViewModel {
         getRecordings()
     }
     
-    // MARK: - Helpers
+    // MARK: - Private helpers
     private func getRecordings() {
         let enumerator = FileManager.default.enumerator(atPath: FileManagerHelper.getAppDirectory().path)
         guard let filePaths = enumerator?.allObjects as? [String] else { return }
@@ -38,6 +38,7 @@ final class RecordingListViewModel: ViewModel {
         return "file://" + FileManagerHelper.getAppDirectory().path + "/" + encodedName
     }
     
+    // MARK: - Public helpers
     func recordingCellViewModel(at indexPath: IndexPath) -> RecordingCellViewModel? {
         guard indexPath.row < recordings.count else { return nil }
         return RecordingCellViewModel.from(recordings[indexPath.row])
