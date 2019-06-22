@@ -23,6 +23,7 @@ final class RecordingViewModel: NSObject, ViewModel {
     var createRecording: (() -> Void) = {}
     var handlerError: ((Error) -> Void) = { _ in }
     
+    // MARK: - Init
     override init() {
         super.init()
         do {

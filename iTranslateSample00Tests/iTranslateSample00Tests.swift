@@ -7,30 +7,30 @@
 //
 
 import XCTest
+import AVFoundation
 @testable import iTranslateSample00
 
 class iTranslateSample00Tests: XCTestCase {
     
+    var viewModel: RecordingViewModel!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        viewModel = RecordingViewModel()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        viewModel = nil
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_requestAudioPermission_permissionsAreNotUndetermined_Successful() {
+        viewModel.requestAudioPermission()
+        XCTAssert(AVAudioSession.sharedInstance().recordPermission != .undetermined)
     }
     
 }
