@@ -12,7 +12,10 @@ import AVFoundation
 final class RecordingViewModel: NSObject, ViewModel {
     
     // MARK: - Private variables
-    private var recordingSession: AVAudioSession!
+    private let permissionWrapper: AVPermissionWrapper!
+    private var recordingSession: AVAudioSession? {
+        return permissionWrapper.session
+    }
     private var audioRecorder: AVAudioRecorder!
     private var nameOfRecording: String {
         return "\(Constants.recordingFileName) \(lastRecordingNumber() + 1)\(Constants.recordingFileFormat)"
@@ -24,7 +27,8 @@ final class RecordingViewModel: NSObject, ViewModel {
     var handlerError: ((Error) -> Void) = { _ in }
     
     // MARK: - Init
-    override init() {
+    init(permissionWrapper: AVPermissionWrapper) {
+        self.permissionWrapper = permissionWrapper
         super.init()
         do {
             try createRecorder()
@@ -35,9 +39,8 @@ final class RecordingViewModel: NSObject, ViewModel {
     
     // MARK: - Private helpers
     private func createRecorder() throws {
-        recordingSession = AVAudioSession.sharedInstance()
-        try recordingSession.setCategory(.record, mode: .default)
-        try recordingSession.setActive(true)
+        try recordingSession?.setCategory(.record, mode: .default)
+        try recordingSession?.setActive(true)
     }
     
     private func startRecording() {
@@ -80,7 +83,7 @@ final class RecordingViewModel: NSObject, ViewModel {
             stopRecording(error: nil)
             handler(.stopped)
         } else {
-            switch recordingSession.recordPermission {
+            switch permissionWrapper.permission {
             case .denied: handler(.deniedPermissions)
             case .undetermined: handler(.needPermissions)
             case .granted:
@@ -92,7 +95,7 @@ final class RecordingViewModel: NSObject, ViewModel {
     }
     
     func requestAudioPermission() {
-        recordingSession.requestRecordPermission() { [weak self] _ in
+        recordingSession?.requestRecordPermission() { [weak self] _ in
             guard let self = self else { return }
             self.startRecording()
         }
@@ -102,5 +105,28 @@ final class RecordingViewModel: NSObject, ViewModel {
 extension RecordingViewModel: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag { stopRecording(error: CustomError.recordingStopped) }
+    }
+}
+
+enum AVPermissionWrapper {
+    case mock(permission: AVAudioSession.RecordPermission)
+    case real(session: AVAudioSession)
+    
+    var permission: AVAudioSession.RecordPermission {
+        switch self {
+        case .mock(let permission):
+            return permission
+        case .real(let session):
+            return session.recordPermission
+        }
+    }
+    
+    var session: AVAudioSession? {
+        switch self {
+        case .mock:
+            return nil
+        case .real(let session):
+            return session
+        }
     }
 }

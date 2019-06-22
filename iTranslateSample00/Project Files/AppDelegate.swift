@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
-            let mainViewController = RecordingViewController.instantiate(with: RecordingViewModel())
+            let mainViewController = RecordingViewController.instantiate(with: RecordingViewModel(permissionWrapper: .real(session: AVAudioSession.sharedInstance())))
             window.rootViewController = mainViewController
             window.makeKeyAndVisible()
         }
