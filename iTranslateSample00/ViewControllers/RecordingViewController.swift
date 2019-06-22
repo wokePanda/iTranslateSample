@@ -18,28 +18,14 @@ final class RecordingViewController: UIViewController, ViewModelBased {
         didSet {
             viewModel.createRecording = createRecording
             viewModel.finishRecording = finishRecording
-        }
-    }
-    
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-    }
-    
-    // MARK: - Setup
-    private func setup() {
-        do {
-            try viewModel.createRecorder()
-        } catch let error {
-            presentAlert(for: error)
+            viewModel.handlerError = handleError
         }
     }
     
     // MARK: - Helpers
     private func presentPermissionAlert() {
         let alert = PermissionAlertViewController.getInstance()
-        alert.delegate = viewModel
+        alert.delegate = self
         alert.modalPresentationStyle = .overCurrentContext
         present(alert, animated: true, completion: nil)
     }
@@ -85,6 +71,10 @@ final class RecordingViewController: UIViewController, ViewModelBased {
         present(navigationController, animated: true, completion: nil)
     }
     
+    private func handleError(error: Error) {
+        presentAlert(for: error)
+    }
+    
     // MARK: - IBActions
     @IBAction private func recordingToggle(_ sender: UIButton) {
         toggleRecording()
@@ -93,6 +83,13 @@ final class RecordingViewController: UIViewController, ViewModelBased {
         goToRecordings()
     }
 }
+
+extension RecordingViewController: PermissionAlertDelegate {
+    func acceptPermission(_ accept: Bool) {
+        if accept { viewModel.requestAudioPermission() }
+    }
+}
+
 
 extension RecordingViewController: Storyboarded {
     static var storyboardName: Storyboards {

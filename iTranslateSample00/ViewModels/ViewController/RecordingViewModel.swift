@@ -21,8 +21,24 @@ final class RecordingViewModel: NSObject, ViewModel {
     // MARK: - Public variables
     var finishRecording: ((Error?) -> Void) = { _ in }
     var createRecording: (() -> Void) = {}
+    var handlerError: ((Error) -> Void) = { _ in }
+    
+    override init() {
+        super.init()
+        do {
+            try createRecorder()
+        } catch let error {
+            handlerError(error)
+        }
+    }
     
     // MARK: - Private helpers
+    private func createRecorder() throws {
+        recordingSession = AVAudioSession.sharedInstance()
+        try recordingSession.setCategory(.record, mode: .default)
+        try recordingSession.setActive(true)
+    }
+    
     private func startRecording() {
         let audioFilename = FileManagerHelper.getAppDirectory().appendingPathComponent(nameOfRecording)
         
@@ -58,12 +74,6 @@ final class RecordingViewModel: NSObject, ViewModel {
     }
     
     // MARK: - Public helpers
-    func createRecorder() throws {
-        recordingSession = AVAudioSession.sharedInstance()
-        try recordingSession.setCategory(.record, mode: .default)
-        try recordingSession.setActive(true)
-    }
-    
     func toggleRecording(completion handler: @escaping (RecordingStatus) -> Void) {
         if audioRecorder != nil, audioRecorder.isRecording {
             stopRecording(error: nil)
@@ -79,21 +89,17 @@ final class RecordingViewModel: NSObject, ViewModel {
             }
         }
     }
+    
+    func requestAudioPermission() {
+        recordingSession.requestRecordPermission() { [weak self] _ in
+            guard let self = self else { return }
+            self.startRecording()
+        }
+    }
 }
 
 extension RecordingViewModel: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag { stopRecording(error: CustomError.recordingStopped) }
-    }
-}
-
-extension RecordingViewModel: PermissionAlertDelegate {
-    func acceptPermission(_ accept: Bool) {
-        if accept {
-            recordingSession.requestRecordPermission() { [weak self] _ in
-                guard let self = self else { return }
-                self.startRecording()
-            }
-        }
     }
 }
