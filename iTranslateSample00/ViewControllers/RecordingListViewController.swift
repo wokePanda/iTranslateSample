@@ -12,11 +12,15 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var playView: UIView!
+    @IBOutlet private weak var recordingNameLabel: UILabel!
+    @IBOutlet private weak var progressLabel: UILabel!
     
     // MARK: - Variables
     var viewModel: RecordingListViewModel! {
         didSet { viewModel.handlerError = handleError }
     }
+    var timer: Timer?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -43,6 +47,7 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     
     private func setupTableView() {
         tableView.register(RecordingTableViewCell.self)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: playView.frame.height, right: 0)
     }
     
     // MARK: - Helpers
@@ -52,6 +57,36 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     
     private func handleError(error: Error) {
         presentAlert(for: error)
+    }
+    
+    private func resetPlayer() {
+        playView.isHidden = true
+        timer?.invalidate()
+        timer = nil
+        progressLabel.text = "00:00"
+    }
+    
+    private func playRecording(at indexPath: IndexPath) {
+        resetPlayer()
+        do {
+            try viewModel.playRecording(at: indexPath)
+            playView.isHidden = false
+            recordingNameLabel.text = "Now playing: \(viewModel.recordingName(at: indexPath))"
+            let recordingDuration = viewModel.recordingDuration(at: indexPath)
+            progressLabel.text = recordingDuration.durationString()
+            var repeats = 0
+            guard let oneSecondInterval = TimeInterval(exactly: 1.0) else { return }
+            timer = Timer.scheduledTimer(withTimeInterval: oneSecondInterval, repeats: true, block: { [weak self] _ in
+                guard let self = self else { return }
+                let newDuration = recordingDuration - repeats
+                self.progressLabel.text = newDuration.durationString()
+                if newDuration == -1 { self.resetPlayer() }
+                repeats += 1
+            })
+            timer?.fire()
+        } catch let error {
+            presentAlert(for: error)
+        }
     }
 }
 
@@ -68,21 +103,9 @@ extension RecordingListViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        tableView.visibleCells.forEach { cell in
-            guard let cell = cell as? RecordingTableViewCell else { return }
-            cell.reset()
-        }
-        return indexPath
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        do {
-            try viewModel.playRecording(at: indexPath)
-        } catch let error {
-            presentAlert(for: error)
-        }
+        playRecording(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

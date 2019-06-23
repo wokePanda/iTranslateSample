@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,10 +25,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="RecordingViewController" id="BYZ-38-t0r" customClass="RecordingViewController" customModule="iTranslateSample00" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,10 +58,11 @@
                         <color key="backgroundColor" red="0.94901960784313721" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="guz-bm-Jtu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4Jn-8Y-Yb7"/>
-                            <constraint firstItem="guz-bm-Jtu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lnp-9K-nnU"/>
+                            <constraint firstItem="guz-bm-Jtu" firstAttribute="centerX" secondItem="QdR-Qt-M0v" secondAttribute="centerX" id="Lnp-9K-nnU"/>
                             <constraint firstItem="GHy-h1-747" firstAttribute="top" secondItem="guz-bm-Jtu" secondAttribute="bottom" constant="100" id="Wfc-JD-ovd"/>
-                            <constraint firstItem="GHy-h1-747" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vQz-vh-f8Z"/>
+                            <constraint firstItem="GHy-h1-747" firstAttribute="centerX" secondItem="QdR-Qt-M0v" secondAttribute="centerX" id="vQz-vh-f8Z"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="QdR-Qt-M0v"/>
                     </view>
                     <connections>
                         <outlet property="recordingButton" destination="guz-bm-Jtu" id="86k-x6-osh"/>
@@ -78,10 +76,6 @@
         <scene sceneID="Ig9-3Z-sFg">
             <objects>
                 <viewController storyboardIdentifier="PermissionAlertViewController" id="isA-7u-Czx" customClass="PermissionAlertViewController" customModule="iTranslateSample00" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XJ2-wW-KtL"/>
-                        <viewControllerLayoutGuide type="bottom" id="OL6-ZN-rDh"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4cF-dQ-yWe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,9 +152,10 @@ microphone.</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerX" secondItem="4cF-dQ-yWe" secondAttribute="centerX" id="6cY-uX-ckb"/>
+                            <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerX" secondItem="B1Y-ji-w6W" secondAttribute="centerX" id="6cY-uX-ckb"/>
                             <constraint firstItem="ftk-Ps-VyR" firstAttribute="centerY" secondItem="4cF-dQ-yWe" secondAttribute="centerY" id="gMZ-Wp-IH3"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="B1Y-ji-w6W"/>
                     </view>
                     <connections>
                         <outlet property="microphoneImageView" destination="oBc-MH-0ZI" id="bzk-2p-05k"/>
@@ -174,10 +169,6 @@ microphone.</string>
         <scene sceneID="0t1-WK-bou">
             <objects>
                 <viewController storyboardIdentifier="RecordingListViewController" id="Z57-6O-1ck" customClass="RecordingListViewController" customModule="iTranslateSample00" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zdi-6d-Ppi"/>
-                        <viewControllerLayoutGuide type="bottom" id="dlp-zC-ljn"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0N6-r8-xaQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,22 +181,70 @@ microphone.</string>
                                     <outlet property="delegate" destination="Z57-6O-1ck" id="jmv-4B-Zmf"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvN-Mg-Dsb">
+                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77Q-qw-YIy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="YVl-je-8Gg"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-aZ-8Qt">
+                                        <rect key="frame" x="16" y="15" width="328" height="21"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G63-g3-oyK">
+                                        <rect key="frame" x="344" y="14" width="60" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="rwb-OD-dnS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="G63-g3-oyK" firstAttribute="top" secondItem="QvN-Mg-Dsb" secondAttribute="top" constant="14" id="JBc-MH-wDo"/>
+                                    <constraint firstItem="G63-g3-oyK" firstAttribute="leading" secondItem="eOa-aZ-8Qt" secondAttribute="trailing" id="NrI-6N-rSC"/>
+                                    <constraint firstItem="77Q-qw-YIy" firstAttribute="leading" secondItem="QvN-Mg-Dsb" secondAttribute="leading" id="PAC-kr-Jla"/>
+                                    <constraint firstAttribute="trailing" secondItem="G63-g3-oyK" secondAttribute="trailing" constant="10" id="SiK-O3-BGW"/>
+                                    <constraint firstAttribute="bottom" secondItem="G63-g3-oyK" secondAttribute="bottom" constant="49" id="ZXc-eq-1X9"/>
+                                    <constraint firstAttribute="trailing" secondItem="77Q-qw-YIy" secondAttribute="trailing" id="kmq-6s-PLV"/>
+                                    <constraint firstAttribute="height" constant="84" id="kwI-ah-JoT"/>
+                                    <constraint firstAttribute="bottom" secondItem="eOa-aZ-8Qt" secondAttribute="bottom" constant="48" id="oa6-HH-N4K"/>
+                                    <constraint firstItem="eOa-aZ-8Qt" firstAttribute="leading" secondItem="QvN-Mg-Dsb" secondAttribute="leading" constant="16" id="qHp-xk-9OD"/>
+                                    <constraint firstItem="77Q-qw-YIy" firstAttribute="top" secondItem="QvN-Mg-Dsb" secondAttribute="top" id="rh8-7o-iRL"/>
+                                    <constraint firstItem="eOa-aZ-8Qt" firstAttribute="top" secondItem="QvN-Mg-Dsb" secondAttribute="top" constant="15" id="xiL-06-f4e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LhM-DL-e0p" firstAttribute="top" secondItem="Zdi-6d-Ppi" secondAttribute="bottom" id="Phe-QJ-xDa"/>
-                            <constraint firstItem="LhM-DL-e0p" firstAttribute="leading" secondItem="0N6-r8-xaQ" secondAttribute="leading" id="Puj-rc-Zzt"/>
-                            <constraint firstItem="dlp-zC-ljn" firstAttribute="top" secondItem="LhM-DL-e0p" secondAttribute="bottom" id="jhG-bS-EES"/>
-                            <constraint firstAttribute="trailing" secondItem="LhM-DL-e0p" secondAttribute="trailing" id="txF-BG-OxK"/>
+                            <constraint firstItem="aVl-mM-pAt" firstAttribute="trailing" secondItem="QvN-Mg-Dsb" secondAttribute="trailing" id="Fwh-l5-Lvf"/>
+                            <constraint firstItem="aVl-mM-pAt" firstAttribute="bottom" secondItem="QvN-Mg-Dsb" secondAttribute="bottom" constant="-34" id="GV8-Fk-mBW"/>
+                            <constraint firstItem="LhM-DL-e0p" firstAttribute="top" secondItem="aVl-mM-pAt" secondAttribute="top" id="Phe-QJ-xDa"/>
+                            <constraint firstItem="LhM-DL-e0p" firstAttribute="leading" secondItem="aVl-mM-pAt" secondAttribute="leading" id="Puj-rc-Zzt"/>
+                            <constraint firstItem="LhM-DL-e0p" firstAttribute="bottom" secondItem="aVl-mM-pAt" secondAttribute="bottom" id="Ue9-rN-Jmh"/>
+                            <constraint firstItem="QvN-Mg-Dsb" firstAttribute="leading" secondItem="aVl-mM-pAt" secondAttribute="leading" id="klo-v6-Jka"/>
+                            <constraint firstItem="aVl-mM-pAt" firstAttribute="trailing" secondItem="LhM-DL-e0p" secondAttribute="trailing" id="txF-BG-OxK"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="aVl-mM-pAt"/>
                     </view>
                     <connections>
+                        <outlet property="playView" destination="QvN-Mg-Dsb" id="ogn-1r-E3n"/>
+                        <outlet property="progressLabel" destination="G63-g3-oyK" id="k9v-5u-djk"/>
+                        <outlet property="recordingNameLabel" destination="eOa-aZ-8Qt" id="h9t-0A-hN9"/>
                         <outlet property="tableView" destination="LhM-DL-e0p" id="yzS-Ts-HGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VX-mU-lfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825" y="6"/>
+            <point key="canvasLocation" x="1824.6376811594205" y="5.3571428571428568"/>
         </scene>
     </scenes>
     <resources>

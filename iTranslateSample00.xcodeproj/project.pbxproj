@@ -209,9 +209,9 @@
 		9FEDECA022BB65B7008DDDEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FEDECA122BB65BD008DDDEF /* Storyboards */,
 				9FEDECBE22BB70AB008DDDEF /* Fonts */,
 				9BEBCBCA1CBE93B80019D942 /* Assets.xcassets */,
-				9FEDECA122BB65BD008DDDEF /* Storyboards */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

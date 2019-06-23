@@ -78,4 +78,14 @@ final class RecordingListViewModel: ViewModel {
         try remove(recording: recordings[indexPath.row])
         recordings.remove(at: indexPath.row)
     }
+    
+    func recordingName(at indexPath: IndexPath) -> String {
+        guard indexPath.row < recordings.count else { return "" }
+        return recordings[indexPath.row].name
+    }
+    
+    func recordingDuration(at indexPath: IndexPath) -> Int {
+        guard indexPath.row < recordings.count else { return 0 }
+        return recordings[indexPath.row].duration
+    }
 }

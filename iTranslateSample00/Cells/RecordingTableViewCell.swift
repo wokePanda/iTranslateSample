@@ -18,42 +18,10 @@ final class RecordingTableViewCell: UITableViewCell, ViewModelBased {
     var viewModel: RecordingCellViewModel! {
         didSet { setup(with: viewModel) }
     }
-    private var timer: Timer?
     
     // MARK: - Setup
     private func setup(with viewModel: RecordingCellViewModel) {
         nameLabel.text = viewModel.name
         durationLabel.text = viewModel.durationString
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected { startCountdown() }
-    }
-    
-    func reset() {
-        self.timer?.invalidate()
-        backgroundColor = .white
-        durationLabel.textColor = .babyBlue
-        nameLabel.textColor = .black
-        durationLabel.text = viewModel.durationString
-    }
-    
-    private func startCountdown() {
-        backgroundColor = .fadedGray
-        durationLabel.textColor = .white
-        nameLabel.textColor = .white
-        var repeats = 0
-        guard let oneSecondInterval = TimeInterval(exactly: 1.0) else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: oneSecondInterval, repeats: true, block: { [weak self] _ in
-            guard let self = self else { return }
-            let newDuration = self.viewModel.duration - repeats
-            self.durationLabel.text = newDuration.durationString()
-            if newDuration == -1 {
-                self.reset()
-            }
-            repeats += 1
-        })
-        timer?.fire()
     }
 }
