@@ -11,7 +11,7 @@ import Foundation
 struct DeviceFileManagerWrapper: FileManagerWrapper {
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].appendingPathComponent("test")
+        return paths[0]
     }
     func getAudioFilePaths() -> [String] {
         let enumerator = FileManager.default.enumerator(atPath: getDocumentsDirectory().path)
