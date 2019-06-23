@@ -179,11 +179,11 @@
 		9BEBCBD71CBE93B80019D942 /* iTranslateSample00Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9BEBCBDA1CBE93B80019D942 /* Info.plist */,
 				9FEDED0A22BFAF69008DDDEF /* Recording 2.m4a */,
 				9FEDED0922BFA92C008DDDEF /* Helpers */,
 				9FEDED0722BFA91B008DDDEF /* ViewModels */,
 				9FEDED0822BFA925008DDDEF /* Models */,
-				9BEBCBDA1CBE93B80019D942 /* Info.plist */,
 			);
 			path = iTranslateSample00Tests;
 			sourceTree = "<group>";
