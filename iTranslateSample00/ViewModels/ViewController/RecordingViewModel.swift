@@ -13,6 +13,7 @@ final class RecordingViewModel: NSObject, ViewModel {
     
     // MARK: - Private variables
     private let permissionWrapper: AVPermissionWrapper!
+    private let fileManagerWrapper: FileManagerWrapper!
     private var recordingSession: AVAudioSession? {
         return permissionWrapper.session
     }
@@ -27,24 +28,30 @@ final class RecordingViewModel: NSObject, ViewModel {
     var handlerError: ((Error) -> Void) = { _ in }
     
     // MARK: - Init
-    init(permissionWrapper: AVPermissionWrapper) {
+    init(permissionWrapper: AVPermissionWrapper = .real(session: AVAudioSession.sharedInstance()), fileManagerWrapper: FileManagerWrapper = DeviceFileManagerWrapper()) {
         self.permissionWrapper = permissionWrapper
+        self.fileManagerWrapper = fileManagerWrapper
         super.init()
+        setup()
+    }
+    
+    // MARK: - Setup
+    private func setup() {
         do {
-            try createRecorder()
+            try createSession()
         } catch let error {
             handlerError(error)
         }
     }
     
     // MARK: - Private helpers
-    private func createRecorder() throws {
+    private func createSession() throws {
         try recordingSession?.setCategory(.record, mode: .default)
         try recordingSession?.setActive(true)
     }
     
     private func startRecording() {
-        let audioFilename = FileManagerHelper.getAppDirectory().appendingPathComponent(nameOfRecording)
+        let audioFilename = fileManagerWrapper.getDocumentsDirectory().appendingPathComponent(nameOfRecording)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -70,11 +77,7 @@ final class RecordingViewModel: NSObject, ViewModel {
     }
     
     private func lastRecordingNumber() -> Int {
-        let enumerator = FileManager.default.enumerator(atPath: FileManagerHelper.getAppDirectory().path)
-        guard let filePaths = enumerator?.allObjects as? [String] else { return 0 }
-        let audioFilePaths = filePaths.filter{ $0.contains(Constants.recordingFileFormat) && $0.contains(Constants.recordingFileName) }.sorted()
-        guard let lastAudioFile = audioFilePaths.last else { return 0 }
-        return lastAudioFile.indexForRecordingFile()
+        return fileManagerWrapper.getAudioFilePaths().last?.indexForRecordingFile() ?? 0
     }
     
     // MARK: - Public helpers
@@ -105,28 +108,5 @@ final class RecordingViewModel: NSObject, ViewModel {
 extension RecordingViewModel: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag { stopRecording(error: CustomError.recordingStopped) }
-    }
-}
-
-enum AVPermissionWrapper {
-    case mock(permission: AVAudioSession.RecordPermission)
-    case real(session: AVAudioSession)
-    
-    var permission: AVAudioSession.RecordPermission {
-        switch self {
-        case .mock(let permission):
-            return permission
-        case .real(let session):
-            return session.recordPermission
-        }
-    }
-    
-    var session: AVAudioSession? {
-        switch self {
-        case .mock:
-            return nil
-        case .real(let session):
-            return session
-        }
     }
 }

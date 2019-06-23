@@ -14,7 +14,9 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Variables
-    var viewModel: RecordingListViewModel!
+    var viewModel: RecordingListViewModel! {
+        didSet { viewModel.handlerError = handleError }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,6 +49,10 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
     @objc private func dismissList() {
         navigationController?.dismiss(animated: true, completion: nil)
     }
+    
+    private func handleError(error: Error) {
+        presentAlert(for: error)
+    }
 }
 
 extension RecordingListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,20 +78,23 @@ extension RecordingListViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.playRecording(at: indexPath)
+        do {
+            try viewModel.playRecording(at: indexPath)
+        } catch let error {
+            presentAlert(for: error)
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "") { [weak self] action, indexPath in
             guard let self = self else { return }
-            self.viewModel.removeRecording(at: indexPath, completion: { error in
-                if let error = error {
-                    self.presentAlert(for: error)
-                    return
-                }
+            do {
+                try self.viewModel.removeRecording(at: indexPath)
                 tableView.reloadData()
                 self.presentAlert(with: "Success", message: "Recording has been deleted")
-            })
+            } catch let error {
+                self.presentAlert(for: error)
+            }
         }
         if let deleteIconImage = UIImage(named: "deleteImage") {
             deleteAction.backgroundColor = UIColor(patternImage: deleteIconImage)

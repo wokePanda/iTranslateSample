@@ -12,7 +12,7 @@ import AVFoundation
 
 class RecordingViewModelTests: XCTestCase {
     
-    func test_toggleRecording_permissionsAreUndetermined_Successfull() {
+    func test_toggleRecording_permissionsAreUndetermined_successfull() {
         let permissionWrapper: AVPermissionWrapper = .mock(permission: .undetermined)
         let viewModel = RecordingViewModel(permissionWrapper: permissionWrapper)
         viewModel.toggleRecording { status in
@@ -20,7 +20,7 @@ class RecordingViewModelTests: XCTestCase {
         }
     }
     
-    func test_toggleRecording_permissionsAreDenied_Fail() {
+    func test_toggleRecording_permissionsAreDenied_fail() {
         let permissionWrapper: AVPermissionWrapper = .mock(permission: .denied)
         let viewModel = RecordingViewModel(permissionWrapper: permissionWrapper)
         viewModel.toggleRecording { status in

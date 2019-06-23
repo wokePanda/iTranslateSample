@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
-            let mainViewController = RecordingViewController.instantiate(with: RecordingViewModel(permissionWrapper: .real(session: AVAudioSession.sharedInstance())))
+            let mainViewController = RecordingViewController.instantiate(with: RecordingViewModel())
             window.rootViewController = mainViewController
             window.makeKeyAndVisible()
         }
