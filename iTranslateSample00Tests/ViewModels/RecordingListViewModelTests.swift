@@ -24,7 +24,9 @@ class RecordingListViewModelTests: XCTestCase {
     
     func test_cellViewModel_correctViewModelAtValidIndexPath_successful() {
         let fetchedCellViewModel = viewModel.recordingCellViewModel(at: IndexPath(row: 1, section: 0))
-        let expectedCellViewModel = RecordingCellViewModel(recording: Recording(name: "Recording 2", path: "", duration: 0))
+        let expectedCellViewModel = RecordingCellViewModel(recording: Recording(name: "Recording 2",
+                                                                                path: "file:///Users/florinuscatu/Library/Developer/Xcode/DerivedData/iTranslateSample00-amgcqcxzooowbafowtjpanlysiex/Build/Products/Debug-iphonesimulator/iTranslateSample00.app/PlugIns/iTranslateSample00Tests.xctest/Recording%202.m4a",
+                                                                                duration: 3))
         XCTAssertEqual(fetchedCellViewModel?.name, expectedCellViewModel.name)
         XCTAssertEqual(fetchedCellViewModel?.durationString, expectedCellViewModel.durationString)
         XCTAssertEqual(fetchedCellViewModel?.duration, expectedCellViewModel.duration)
@@ -34,10 +36,18 @@ class RecordingListViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.recordingCellViewModel(at: IndexPath(row: 4, section: 0)))
     }
     
+    func test_playRecording_atValidIndexPath_successful() {
+        XCTAssertNoThrow(try viewModel.playRecording(at: IndexPath(row: 1, section: 0)), "")
+    }
+    
     func test_playRecording_atInvalidIndexPath_fail() {
         XCTAssertThrowsError(try viewModel.playRecording(at: IndexPath(row: 4, section: 0)), "") { error in
             XCTAssertEqual(error as! CustomError, CustomError.noFileAtPath)
         }
+    }
+    
+    func test_removeRecording_atValidIndexPath_successful() {
+        XCTAssertNoThrow(try viewModel.removeRecording(at: IndexPath(row: 1, section: 0)), "")
     }
     
     func test_removeRecording_atInvalidIndexPath_fail() {

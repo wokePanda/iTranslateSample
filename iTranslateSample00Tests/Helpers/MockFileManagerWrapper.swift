@@ -9,15 +9,15 @@
 import Foundation
 @testable import iTranslateSample00
 
-struct MockFileManagerWrapper: FileManagerWrapper {
+class MockFileManagerWrapper: FileManagerWrapper {
     func removeFile(at url: URL) throws {}
     
     func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].appendingPathComponent("test")
+        let bundlePath = Bundle(for: type(of: self)).bundlePath
+        return URL(string: bundlePath)!
     }
     
     func getAudioFilePaths() -> [String] {
-        return ["Recording 1", "Recording 2"]
+        return ["Recording 1.m4a", "Recording 2.m4a"]
     }
 }
