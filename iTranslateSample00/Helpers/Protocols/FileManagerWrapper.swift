@@ -13,3 +13,9 @@ protocol FileManagerWrapper {
     func getAudioFilePaths() -> [String]
     func removeFile(at url: URL) throws
 }
+
+extension FileManagerWrapper {
+    func newFilePath(with name: String) -> URL {
+        return getDocumentsDirectory().appendingPathComponent(name)
+    }
+}
