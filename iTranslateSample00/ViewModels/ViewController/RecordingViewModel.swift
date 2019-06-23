@@ -28,7 +28,8 @@ final class RecordingViewModel: NSObject, ViewModel {
     var handlerError: ((Error) -> Void) = { _ in }
     
     // MARK: - Init
-    init(permissionWrapper: AVPermissionWrapper = .real(session: AVAudioSession.sharedInstance()), fileManagerWrapper: FileManagerWrapper = DeviceFileManagerWrapper()) {
+    init(permissionWrapper: AVPermissionWrapper = .real(session: AVAudioSession.sharedInstance()),
+         fileManagerWrapper: FileManagerWrapper = DeviceFileManagerWrapper()) {
         self.permissionWrapper = permissionWrapper
         self.fileManagerWrapper = fileManagerWrapper
         super.init()

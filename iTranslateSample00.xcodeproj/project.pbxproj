@@ -177,11 +177,9 @@
 		9BEBCBD71CBE93B80019D942 /* iTranslateSample00Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9BEBCBD81CBE93B80019D942 /* RecordingViewModelTests.swift */,
-				9FEDECFB22BF848F008DDDEF /* RecordingListViewModelTests.swift */,
-				9FEDED0322BFA291008DDDEF /* RecordingCellViewModelTests.swift */,
-				9FEDED0122BF9584008DDDEF /* MockFileManagerWrapper.swift */,
-				9FEDED0522BFA5B7008DDDEF /* RecordingTests.swift */,
+				9FEDED0922BFA92C008DDDEF /* Helpers */,
+				9FEDED0722BFA91B008DDDEF /* ViewModels */,
+				9FEDED0822BFA925008DDDEF /* Models */,
 				9BEBCBDA1CBE93B80019D942 /* Info.plist */,
 			);
 			path = iTranslateSample00Tests;
@@ -326,6 +324,32 @@
 				9FEDECF722BD1917008DDDEF /* RecordingStatus.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9FEDED0722BFA91B008DDDEF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9BEBCBD81CBE93B80019D942 /* RecordingViewModelTests.swift */,
+				9FEDECFB22BF848F008DDDEF /* RecordingListViewModelTests.swift */,
+				9FEDED0322BFA291008DDDEF /* RecordingCellViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9FEDED0822BFA925008DDDEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9FEDED0522BFA5B7008DDDEF /* RecordingTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FEDED0922BFA92C008DDDEF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9FEDED0122BF9584008DDDEF /* MockFileManagerWrapper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

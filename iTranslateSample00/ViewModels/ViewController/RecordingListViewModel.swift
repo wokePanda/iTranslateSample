@@ -30,10 +30,10 @@ final class RecordingListViewModel: ViewModel {
     private func setup() {
         do {
             try createSession()
+            getRecordings()
         } catch let error {
             handlerError(error)
         }
-        getRecordings()
     }
     
     // MARK: - Private helpers
@@ -51,6 +51,17 @@ final class RecordingListViewModel: ViewModel {
         return "file://" + fileManagerWrapper.getDocumentsDirectory().path + "/" + encodedName
     }
     
+    private func play(recording: Recording) throws {
+        guard let url = URL(string: recording.path) else { return }
+        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.m4a.rawValue)
+        player?.play()
+    }
+    
+    private func remove(recording: Recording) throws {
+        guard let url = URL(string: recording.path) else { throw(CustomError.invalidUrl) }
+        try fileManagerWrapper.removeFile(at: url)
+    }
+    
     // MARK: - Public helpers
     func recordingCellViewModel(at indexPath: IndexPath) -> RecordingCellViewModel? {
         guard indexPath.row < recordings.count else { return nil }
@@ -59,17 +70,12 @@ final class RecordingListViewModel: ViewModel {
     
     func playRecording(at indexPath: IndexPath) throws {
         guard indexPath.row < recordings.count else { throw CustomError.noFileAtPath }
-        let recording = recordings[indexPath.row]
-        guard let url = URL(string: recording.path) else { return }
-        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.m4a.rawValue)
-        player?.play()
+        try play(recording: recordings[indexPath.row])
     }
     
     func removeRecording(at indexPath: IndexPath) throws {
         guard indexPath.row < recordings.count else { throw(CustomError.noFileAtPath) }
-        let recording = recordings[indexPath.row]
-        guard let url = URL(string: recording.path) else { throw(CustomError.invalidUrl) }
+        try remove(recording: recordings[indexPath.row])
         recordings.remove(at: indexPath.row)
-        try fileManagerWrapper.removeFile(at: url)
     }
 }

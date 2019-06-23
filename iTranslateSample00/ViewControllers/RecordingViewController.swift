@@ -90,7 +90,6 @@ extension RecordingViewController: PermissionAlertDelegate {
     }
 }
 
-
 extension RecordingViewController: Storyboarded {
     static var storyboardName: Storyboards {
         return .main
