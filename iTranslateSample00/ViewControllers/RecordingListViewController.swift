@@ -73,7 +73,7 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
         do {
             try viewModel.playRecording(at: indexPath)
             playView.isHidden = false
-            recordingNameLabel.text = "Now playing: \(recordingName))"
+            recordingNameLabel.text = "Now playing: \(recordingName)"
             progressLabel.text = recordingDuration.durationString()
             var repeats = 0
             guard let oneSecondInterval = TimeInterval(exactly: 1.0) else { return }
