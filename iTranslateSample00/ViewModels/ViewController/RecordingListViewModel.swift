@@ -88,4 +88,8 @@ final class RecordingListViewModel: ViewModel {
         guard indexPath.row < recordings.count else { return nil }
         return recordings[indexPath.row].duration
     }
+    
+    func stopPlayer() {
+        player?.stop()
+    }
 }

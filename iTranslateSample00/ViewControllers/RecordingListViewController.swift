@@ -28,6 +28,11 @@ final class RecordingListViewController: UIViewController, ViewModelBased {
         setup()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.stopPlayer()
+    }
+    
     // MARK: - Setup
     private func setup() {
         setupNavigationBar()
