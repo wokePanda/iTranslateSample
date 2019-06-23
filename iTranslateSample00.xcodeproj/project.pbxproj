@@ -46,6 +46,7 @@
 		9FEDED0022BF92DE008DDDEF /* DeviceFileManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDECFF22BF92DE008DDDEF /* DeviceFileManagerWrapper.swift */; };
 		9FEDED0222BF9584008DDDEF /* MockFileManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDED0122BF9584008DDDEF /* MockFileManagerWrapper.swift */; };
 		9FEDED0422BFA291008DDDEF /* RecordingCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDED0322BFA291008DDDEF /* RecordingCellViewModelTests.swift */; };
+		9FEDED0622BFA5B7008DDDEF /* RecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDED0522BFA5B7008DDDEF /* RecordingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		9FEDECFF22BF92DE008DDDEF /* DeviceFileManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFileManagerWrapper.swift; sourceTree = "<group>"; };
 		9FEDED0122BF9584008DDDEF /* MockFileManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManagerWrapper.swift; sourceTree = "<group>"; };
 		9FEDED0322BFA291008DDDEF /* RecordingCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingCellViewModelTests.swift; sourceTree = "<group>"; };
+		9FEDED0522BFA5B7008DDDEF /* RecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				9FEDECFB22BF848F008DDDEF /* RecordingListViewModelTests.swift */,
 				9FEDED0322BFA291008DDDEF /* RecordingCellViewModelTests.swift */,
 				9FEDED0122BF9584008DDDEF /* MockFileManagerWrapper.swift */,
+				9FEDED0522BFA5B7008DDDEF /* RecordingTests.swift */,
 				9BEBCBDA1CBE93B80019D942 /* Info.plist */,
 			);
 			path = iTranslateSample00Tests;
@@ -497,6 +500,7 @@
 			files = (
 				9FEDED0422BFA291008DDDEF /* RecordingCellViewModelTests.swift in Sources */,
 				9FEDECFC22BF848F008DDDEF /* RecordingListViewModelTests.swift in Sources */,
+				9FEDED0622BFA5B7008DDDEF /* RecordingTests.swift in Sources */,
 				9BEBCBD91CBE93B80019D942 /* RecordingViewModelTests.swift in Sources */,
 				9FEDED0222BF9584008DDDEF /* MockFileManagerWrapper.swift in Sources */,
 			);

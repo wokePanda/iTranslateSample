@@ -28,4 +28,11 @@ class RecordingViewModelTests: XCTestCase {
         }
     }
     
+    func test_toggleRecording_permissionsAreGranted_successful() {
+        let permissionWrapper: AVPermissionWrapper = .mock(permission: .granted)
+        let viewModel = RecordingViewModel(permissionWrapper: permissionWrapper)
+        viewModel.toggleRecording { status in
+            XCTAssertTrue(status == .recording)
+        }
+    }
 }
