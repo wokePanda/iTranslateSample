@@ -23,10 +23,12 @@ class RecordingListViewModelTests: XCTestCase {
     }
     
     func test_cellViewModel_correctViewModelAtValidIndexPath_successful() {
+        let recordingPath = "file://" + MockFileManagerWrapper().getDocumentsDirectory().path + "/" + "Recording%202.m4a"
+        let recording = Recording(name: "Recording 2",
+                                  path: recordingPath,
+                                  duration: 3)
         let fetchedCellViewModel = viewModel.recordingCellViewModel(at: IndexPath(row: 1, section: 0))
-        let expectedCellViewModel = RecordingCellViewModel(recording: Recording(name: "Recording 2",
-                                                                                path: "file:///Users/florinuscatu/Library/Developer/Xcode/DerivedData/iTranslateSample00-amgcqcxzooowbafowtjpanlysiex/Build/Products/Debug-iphonesimulator/iTranslateSample00.app/PlugIns/iTranslateSample00Tests.xctest/Recording%202.m4a",
-                                                                                duration: 3))
+        let expectedCellViewModel = RecordingCellViewModel(recording: recording)
         XCTAssertEqual(fetchedCellViewModel?.name, expectedCellViewModel.name)
         XCTAssertEqual(fetchedCellViewModel?.durationString, expectedCellViewModel.durationString)
         XCTAssertEqual(fetchedCellViewModel?.duration, expectedCellViewModel.duration)
@@ -54,5 +56,21 @@ class RecordingListViewModelTests: XCTestCase {
         XCTAssertThrowsError(try viewModel.removeRecording(at: IndexPath(row: 4, section: 0)), "") { error in
             XCTAssertEqual(error as! CustomError, CustomError.noFileAtPath)
         }
+    }
+    
+    func test_getRecordingName_atValidIndexPath_successful() {
+        XCTAssertEqual(viewModel.recordingName(at: IndexPath(row: 1, section: 0)), "Recording 2")
+    }
+    
+    func test_getRecoringName_atInvalidIndexPath_fail() {
+        XCTAssertNil(viewModel.recordingName(at: IndexPath(row: 5, section: 0)))
+    }
+    
+    func test_getRecordingDuration_atValidIndexPath_successful() {
+        XCTAssertEqual(viewModel.recordingDuration(at: IndexPath(row: 1, section: 0)), 3)
+    }
+    
+    func test_getRecoringDuration_atInvalidIndexPath_fail() {
+        XCTAssertNil(viewModel.recordingDuration(at: IndexPath(row: 5, section: 0)))
     }
 }

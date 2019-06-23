@@ -79,13 +79,13 @@ final class RecordingListViewModel: ViewModel {
         recordings.remove(at: indexPath.row)
     }
     
-    func recordingName(at indexPath: IndexPath) -> String {
-        guard indexPath.row < recordings.count else { return "" }
+    func recordingName(at indexPath: IndexPath) -> String? {
+        guard indexPath.row < recordings.count else { return nil }
         return recordings[indexPath.row].name
     }
     
-    func recordingDuration(at indexPath: IndexPath) -> Int {
-        guard indexPath.row < recordings.count else { return 0 }
+    func recordingDuration(at indexPath: IndexPath) -> Int? {
+        guard indexPath.row < recordings.count else { return nil }
         return recordings[indexPath.row].duration
     }
 }
